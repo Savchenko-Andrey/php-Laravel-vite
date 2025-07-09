@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: php-Laravel-vite
+    env: docker
+    plan: free
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_URL
+        value: ${RENDER_EXTERNAL_URL}
+      - key: SESSION_DRIVER
+        value: file
+      - key: LOG_CHANNEL
+        value: stderr
