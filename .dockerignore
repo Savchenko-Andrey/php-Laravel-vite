@@ -4,3 +4,4 @@ vendor
 Dockerfile
 docker-compose.yml
 *.log
++!public/build
