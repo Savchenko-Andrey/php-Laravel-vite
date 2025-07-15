@@ -9,9 +9,11 @@
 
 <body class="bg-gray-300 text-gray-800 flex flex-col justify-between min-h-screen">
     <x-header />
+
     <main class="p-6 flex h-full">
         @yield('content')
     </main>
+
     <x-footer />
 </body>
 
