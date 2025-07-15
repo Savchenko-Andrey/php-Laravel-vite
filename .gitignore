@@ -24,3 +24,4 @@ Thumbs.db
 vendor
 Dockerfile
 docker-compose.yml
++!public/build

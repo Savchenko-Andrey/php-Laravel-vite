@@ -12,8 +12,9 @@ WORKDIR /var/www
 COPY . .
 
 RUN chmod +x artisan \
-  && composer install --no-interaction --prefer-dist --optimize-autoloader \
-  && npm install && npm run build
+  && composer install --no-interaction --prefer-dist --optimize-autoloader
+
+RUN npm install && npm run build
 
 RUN mkdir -p database && touch database/database.sqlite
 
@@ -24,4 +25,5 @@ RUN cp .env.example .env \
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
 
 EXPOSE 8000
+
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
