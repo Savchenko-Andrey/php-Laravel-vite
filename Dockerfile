@@ -13,6 +13,10 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 
 RUN npm install && npm run build
 
+# 🔧 Створюємо порожню SQLite базу, щоб уникнути помилки
+RUN mkdir -p database && touch database/database.sqlite
+
+# Копіюємо .env і генеруємо ключ
 RUN cp .env.example .env \
   && php artisan key:generate
 
